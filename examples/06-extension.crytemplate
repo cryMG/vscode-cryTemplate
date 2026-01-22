@@ -1,0 +1,8 @@
+<h1>File association test</h1>
+
+<p>This file uses the <code>.crytemplate</code> extension.</p>
+
+<p>{{ title | upper }}</p>
+{% if ok %}
+  <p>ok</p>
+{% endif %}

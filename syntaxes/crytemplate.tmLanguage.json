@@ -1,0 +1,203 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "cryTemplate",
+  "scopeName": "source.crytemplate",
+  "patterns": [
+    {
+      "include": "#crytemplate"
+    },
+    {
+      "include": "text.html.basic"
+    }
+  ],
+  "repository": {
+    "crytemplate": {
+      "patterns": [
+        {
+          "name": "comment.block.crytemplate",
+          "begin": "\\{#([-~])?",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.begin.crytemplate"
+            },
+            "1": {
+              "name": "keyword.operator.whitespace.trim.crytemplate"
+            }
+          },
+          "contentName": "comment.block.crytemplate",
+          "end": "(?:([-~])?#\\})|\\r?\\n",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.end.crytemplate"
+            },
+            "1": {
+              "name": "keyword.operator.whitespace.trim.crytemplate"
+            }
+          }
+        },
+        {
+          "name": "meta.embedded.block.crytemplate.control",
+          "begin": "\\{%([-~])?",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.section.embedded.begin.crytemplate"
+            },
+            "1": {
+              "name": "keyword.operator.whitespace.trim.crytemplate"
+            }
+          },
+          "end": "(?:([-~])?%\\})|\\r?\\n",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.section.embedded.end.crytemplate"
+            },
+            "1": {
+              "name": "keyword.operator.whitespace.trim.crytemplate"
+            }
+          },
+          "patterns": [
+            {
+              "match": "\\b(if|elseif|else|endif|each|endeach)\\b",
+              "name": "keyword.control.crytemplate"
+            },
+            {
+              "match": "\\bas\\b",
+              "name": "keyword.operator.crytemplate"
+            },
+            {
+              "match": "\\b(true|false|null)\\b",
+              "name": "constant.language.crytemplate"
+            },
+            {
+              "match": "\\b[+-]?\\d+(?:\\.\\d+)?\\b",
+              "name": "constant.numeric.crytemplate"
+            },
+            {
+              "begin": "\"",
+              "end": "(?<!\\\\)\"",
+              "name": "string.quoted.double.crytemplate",
+              "patterns": [
+                {
+                  "match": "\\\\.",
+                  "name": "constant.character.escape.crytemplate"
+                }
+              ]
+            },
+            {
+              "begin": "'",
+              "end": "(?<!\\\\)'",
+              "name": "string.quoted.single.crytemplate",
+              "patterns": [
+                {
+                  "match": "\\\\.",
+                  "name": "constant.character.escape.crytemplate"
+                }
+              ]
+            },
+            {
+              "match": "==|!=|>=|<=|>|<",
+              "name": "keyword.operator.comparison.crytemplate"
+            },
+            {
+              "match": "&&|\\|\\|",
+              "name": "keyword.operator.logical.crytemplate"
+            },
+            {
+              "match": "!",
+              "name": "keyword.operator.logical.crytemplate"
+            },
+            {
+              "match": "\\bnot\\b",
+              "name": "keyword.operator.logical.crytemplate"
+            },
+            {
+              "match": "[A-Za-z_][\\w.]*",
+              "name": "variable.other.crytemplate"
+            }
+          ]
+        },
+        {
+          "name": "meta.embedded.block.crytemplate.interpolation",
+          "begin": "\\{\\{([-~])?",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.section.embedded.begin.crytemplate"
+            },
+            "1": {
+              "name": "keyword.operator.whitespace.trim.crytemplate"
+            }
+          },
+          "end": "(?:([-~])?\\}\\})|\\r?\\n",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.section.embedded.end.crytemplate"
+            },
+            "1": {
+              "name": "keyword.operator.whitespace.trim.crytemplate"
+            }
+          },
+          "patterns": [
+            {
+              "match": "\\G\\s*(=)\\s*",
+              "captures": {
+                "1": {
+                  "name": "keyword.operator.crytemplate"
+                }
+              }
+            },
+            {
+              "match": "\\b(true|false|null)\\b",
+              "name": "constant.language.crytemplate"
+            },
+            {
+              "match": "\\b[+-]?\\d+(?:\\.\\d+)?\\b",
+              "name": "constant.numeric.crytemplate"
+            },
+            {
+              "begin": "\"",
+              "end": "(?<!\\\\)\"",
+              "name": "string.quoted.double.crytemplate",
+              "patterns": [
+                {
+                  "match": "\\\\.",
+                  "name": "constant.character.escape.crytemplate"
+                }
+              ]
+            },
+            {
+              "begin": "'",
+              "end": "(?<!\\\\)'",
+              "name": "string.quoted.single.crytemplate",
+              "patterns": [
+                {
+                  "match": "\\\\.",
+                  "name": "constant.character.escape.crytemplate"
+                }
+              ]
+            },
+            {
+              "match": "\\|(?!\\|)",
+              "name": "keyword.operator.pipe.crytemplate"
+            },
+            {
+              "match": "\\?\\?|\\|\\|",
+              "name": "keyword.operator.logical.crytemplate"
+            },
+            {
+              "match": "\\(|\\)",
+              "name": "punctuation.parenthesis.crytemplate"
+            },
+            {
+              "match": ",",
+              "name": "punctuation.separator.comma.crytemplate"
+            },
+            {
+              "match": "[A-Za-z_][\\w.]*",
+              "name": "variable.other.crytemplate"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

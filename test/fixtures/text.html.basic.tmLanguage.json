@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Test HTML Basic",
+  "scopeName": "text.html.basic",
+  "patterns": [
+    {
+      "match": "</?[A-Za-z][^>]*?>",
+      "name": "meta.tag.html"
+    }
+  ]
+}

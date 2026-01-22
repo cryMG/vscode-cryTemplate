@@ -1,0 +1,93 @@
+{
+  "name": "crytemplate-language",
+  "displayName": "cryTemplate Language Support",
+  "description": "Syntax highlighting for .crytpl/.crytemplate templates (HTML + cryTemplate tokens).",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha \"test/**/*.test.js\""
+  },
+  "devDependencies": {
+    "chai": "^5.1.2",
+    "mocha": "^10.8.2",
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.2.0"
+  },
+  "publisher": "cryeffectmediagroup",
+  "author": {
+    "name": "cryeffect Media Group",
+    "email": "info@crymg.de",
+    "url": "https://crymg.de"
+  },
+  "contributors": [
+    {
+      "name": "Peter Müller",
+      "email": "peter@crycode.de",
+      "url": "https://crycode.de"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cryMG/vscode-cryTemplate"
+  },
+  "bugs": "https://github.com/cryMG/vscode-cryTemplate/issues",
+  "homepage": "https://marketplace.visualstudio.com/items?itemName=cryeffectmediagroup.crytemplate-language",
+  "icon": "cryTemplate.png",
+  "keywords": [
+    "cryTemplate",
+    "template",
+    "syntax",
+    "highlighting"
+  ],
+  "license": "MIT",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "cryTemplate.png",
+    "language-configuration.json",
+    "package.json",
+    "syntaxes/",
+    "examples/example.png"
+  ],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "crytemplate",
+        "aliases": [
+          "cryTemplate",
+          "crytpl"
+        ],
+        "extensions": [
+          ".crytpl",
+          ".crytemplate"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "crytemplate",
+        "scopeName": "source.crytemplate",
+        "path": "./syntaxes/crytemplate.tmLanguage.json",
+        "embeddedLanguages": {
+          "text.html.basic": "html"
+        }
+      },
+      {
+        "scopeName": "source.crytemplate.injection",
+        "path": "./syntaxes/crytemplate.injection.tmLanguage.json",
+        "injectTo": [
+          "source.crytemplate",
+          "text.html.basic",
+          "text.html.derivative",
+          "text.html.markdown"
+        ]
+      }
+    ]
+  }
+}

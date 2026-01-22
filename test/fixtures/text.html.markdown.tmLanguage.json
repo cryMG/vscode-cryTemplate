@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Test Markdown HTML",
+  "scopeName": "text.html.markdown",
+  "patterns": [
+    {
+      "match": "^#{1,6}\\s+.*$",
+      "name": "markup.heading.markdown"
+    }
+  ]
+}

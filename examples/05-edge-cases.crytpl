@@ -1,0 +1,16 @@
+<pre>
+Edge cases
+
+1) Unterminated tokens should look like plain text:
+   {{ unterminated
+   {% unterminated
+   {# unterminated
+
+2) Pipe vs. logical OR (should not highlight || as pipe):
+   {{ a || b }}
+   {{ a | upper || b }}
+
+3) Quotes inside expressions:
+   {{ msg || "\"quoted\"" }}
+   {% if user.name == 'A\'B' %}ok{% endif %}
+</pre>

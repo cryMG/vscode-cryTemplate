@@ -1,0 +1,38 @@
+<div class="demo">
+  <h1>Control flow</h1>
+
+  {% if isAdmin %}
+    <p>Admin</p>
+  {% elseif user.role == 'editor' %}
+    <p>Editor</p>
+  {% else %}
+    <p>User</p>
+  {% endif %}
+
+  <h2>Logical / compare</h2>
+  {% if (a >= 10 && b < 5) || not c %}
+    <p>Complex condition</p>
+  {% endif %}
+
+  <h2>Each</h2>
+  <ul>
+    {% each items as item, i %}
+      <li>#{{ i }}: {{ item.name | trim }}</li>
+    {% endeach %}
+  </ul>
+
+  <h2>Each over object</h2>
+  <dl>
+    {% each settings as entry %}
+      <dt>{{ entry.key }}</dt>
+      <dd>{{ entry.value }}</dd>
+    {% endeach %}
+  </dl>
+
+  <h2>Whitespace trim markers</h2>
+  <pre>
+X{%- if enabled -%}
+Y
+{%- endif -%}Z
+  </pre>
+</div>

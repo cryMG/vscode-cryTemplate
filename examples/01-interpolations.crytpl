@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>cryTemplate highlighting – interpolations</title>
+  </head>
+  <body>
+    <h1>Interpolations</h1>
+
+    <p>Escaped: {{ title }}</p>
+    <p>Raw: {{= trustedHtml }}</p>
+
+    <p>Dot-path: {{ user.profile.firstName }}</p>
+
+    <p>Fallback (||): {{ user.name || user.email || 'anonymous' }}</p>
+    <p>Fallback (??): {{ user.nickname ?? 'no-nick' }}</p>
+
+    <p>Filters: {{ name | trim | upper }}</p>
+    <p>Filters with args: {{ amount | number(2) }}</p>
+    <p>Multiple args: {{ ts | dateformat('YYYY-MM-DD', 'de') }}</p>
+
+    <p>Strings/escapes: {{ 'it\'s ok' }}</p>
+    <p>Numbers/bools/null: {{ 42 }}, {{ true }}, {{ false }}, {{ null }}</p>
+
+    <h2>Whitespace trim markers</h2>
+    <div>
+      A{{- name -}}B
+      A{{~ name ~}}B
+    </div>
+
+    <h2>Comment</h2>
+    {# this is a comment and should be ignored at runtime #}
+    {#- comment with trim markers -#}
+  </body>
+</html>
